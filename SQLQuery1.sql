@@ -1,4 +1,6 @@
 use HojaPrueba;
+--Le cambio el nombre de mi base de datos
+EXEC sp_renamedb 'HojaPrueba', 'HotelSol';
 
 
 CREATE TABLE reserva (
@@ -164,7 +166,7 @@ stockAct integer
 );
 */
 
-/*	A—ADIMOS LAS FOREIGN KEYS Y LAS RELACIONES	*/
+/*	A√ëADIMOS LAS FOREIGN KEYS Y LAS RELACIONES	*/
 
 ALTER TABLE reserva 
 add constraint FK_reserva_cliente 
@@ -226,14 +228,14 @@ ADD CONSTRAINT FK_cliente_reserva
 FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente);
 
 
--- Agrega una columna en la tabla reserva para la relaciÛn con tipoDescuento
+-- Agrega una columna en la tabla reserva para la relaci√≥n con tipoDescuento
 ALTER TABLE reserva
 ADD id_tipo_descuento integer;
 
 ALTER TABLE tipoDescuento
 ADD id_tipo_descuento integer IDENTITY(1,1) PRIMARY KEY;
 
--- Crea la restricciÛn de clave for·nea (foreign key constraint)
+-- Crea la restricci√≥n de clave for√°nea (foreign key constraint)
 ALTER TABLE reserva
 ADD CONSTRAINT FK_reserva_tipoDescuento
 FOREIGN KEY (id_tipo_descuento)
@@ -273,7 +275,7 @@ BEGIN
 END
 
 
---Anular Reserva: Para cancelar una reserva y liberar la habitaciÛn correspondiente.
+--Anular Reserva: Para cancelar una reserva y liberar la habitaci√≥n correspondiente.
 
 CREATE PROCEDURE AnularReserva
     @id_reserva INT
@@ -295,7 +297,7 @@ BEGIN
     INSERT INTO facturaEmitida (id_reserva, nif_facturaEmitida, importe_base, importe_liquido, iva_factura, nombreLegal, fecha_facturaEmitida, comentario_facturaEmitida)
     SELECT r.id_reserva, c.nif_cliente, r.total_precio, r.total_precio, r.iva, 
 	CONCAT(c.nombre_cliente, ' ', c.apellido1_cliente), 
-	GETDATE(), 'Factura generada autom·ticamente.'
+	GETDATE(), 'Factura generada autom√°ticamente.'
     FROM reserva r
     INNER JOIN cliente c ON r.id_cliente = c.id_cliente
     WHERE r.id_reserva = @id_reserva;
@@ -316,10 +318,10 @@ END
 --Para consultarlo
 
 -- Ejecutar el procedimiento ConsultarReservaPorCliente
--- Proporciona el ID del cliente como par·metro
+-- Proporciona el ID del cliente como par√°metro
 EXEC ConsultarReservaPorCliente @id_cliente = 1; -- Reemplaza "1" con el ID del cliente deseado
 
---Consultar Habitaciones Disponibles: Un procedimiento que acepta fechas de inicio y fin, asÌ como otros filtros (como tipo de habitaciÛn) y devuelve una lista de habitaciones disponibles en ese perÌodo.
+--Consultar Habitaciones Disponibles: Un procedimiento que acepta fechas de inicio y fin, as√≠ como otros filtros (como tipo de habitaci√≥n) y devuelve una lista de habitaciones disponibles en ese per√≠odo.
 
 CREATE PROCEDURE ConsultarHabitacionesDisponibles
     @fecha_inicio DATETIME,
@@ -342,10 +344,10 @@ END
 --Para consultarlo
 
 -- Ejecutar el procedimiento ConsultarHabitacionesDisponibles
--- Proporciona las fechas de inicio y fin como par·metros
+-- Proporciona las fechas de inicio y fin como par√°metros
 EXEC ConsultarHabitacionesDisponibles @fecha_inicio = '2023-10-01', @fecha_fin = '2023-10-10'; -- Reemplaza las fechas con las que desees consultar
 
---Consultar Reservas Pendientes: Para obtener una lista de las reservas que a˙n no han llegado.
+--Consultar Reservas Pendientes: Para obtener una lista de las reservas que a√∫n no han llegado.
 
 CREATE PROCEDURE ConsultarReservasPendientes
 AS
@@ -356,7 +358,7 @@ END;
 -- Ejecutar el procedimiento ConsultarReservasPendientes
 EXEC ConsultarReservasPendientes;
 
---Registrar Llegada de Cliente: Marcar que un cliente ha llegado y su reserva est· confirmada.
+--Registrar Llegada de Cliente: Marcar que un cliente ha llegado y su reserva est√° confirmada.
 
 -- Crear el procedimiento almacenado RegistrarLlegadaCliente
 
@@ -369,7 +371,7 @@ BEGIN
 END;
 
 -- Ejecutar el procedimiento RegistrarLlegadaCliente
--- Proporciona el ID de reserva como par·metro
+-- Proporciona el ID de reserva como par√°metro
 EXEC RegistrarLlegadaCliente @id_reserva = 1; -- Reemplaza "1" con el ID de reserva deseado
 
 
@@ -383,7 +385,7 @@ BEGIN
 END;
 
 -- Ejecutar el procedimiento ConsultarFacturasPorCliente
--- Proporciona el ID del cliente como par·metro
+-- Proporciona el ID del cliente como par√°metro
 EXEC ConsultarFacturasPorCliente @id_cliente = 1; -- Reemplaza "1" con el ID de cliente deseado
 
 --Consultar Facturas Pendientes de Pago: Obtener una lista de facturas pendientes de pago.
@@ -397,7 +399,7 @@ END;
 -- Ejecutar el procedimiento ConsultarFacturasPendientesPago
 EXEC ConsultarFacturasPendientesPago;
 
---Actualizar Precios por Temporada: Un procedimiento que permite al administrador actualizar los precios de las habitaciones bas·ndose en las temporadas.
+--Actualizar Precios por Temporada: Un procedimiento que permite al administrador actualizar los precios de las habitaciones bas√°ndose en las temporadas.
 
 CREATE PROCEDURE ActualizarPreciosPorTemporada
     @id_temporada INT,
@@ -413,6 +415,6 @@ BEGIN
 END;
 
 -- Ejecutar el procedimiento ActualizarPreciosPorTemporada
--- Proporciona el ID de temporada, el nuevo multiplicador y el nuevo extra como par·metros
+-- Proporciona el ID de temporada, el nuevo multiplicador y el nuevo extra como par√°metros
 EXEC ActualizarPreciosPorTemporada @id_temporada = 1, @nuevo_multiplicador = 1.2, @nuevo_extra = 50.0;
 
