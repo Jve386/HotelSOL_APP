@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<login_test>
+	<login>
+		<usuario>usuario1</usuario>
+		<contrasena>usuario123</contrasena>
+	</login>
+	<login>
+		<usuario>usuario2</usuario>
+		<contrasena>usuario123</contrasena>
+	</login>
+	<login>
+		<usuario>usuario3</usuario>
+		<contrasena>usuario123</contrasena>
+	</login>
+	<login>
+		<usuario>usuario4</usuario>
+		<contrasena>usuario123</contrasena>
+	</login>
+	<login>
+		<usuario>usuario5</usuario>
+		<contrasena>usuario123</contrasena>
+	</login>
+</login_test>

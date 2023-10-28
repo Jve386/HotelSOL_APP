@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HotelSOLModelStoreContainer" CdmEntityContainer="HotelSOLEntities2">
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="HotelSOLModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+          <ScalarProperty Name="apellido1_cliente" ColumnName="apellido1_cliente" />
+          <ScalarProperty Name="apellido2_cliente" ColumnName="apellido2_cliente" />
+          <ScalarProperty Name="edad_cliente" ColumnName="edad_cliente" />
+          <ScalarProperty Name="pais_cliente" ColumnName="pais_cliente" />
+          <ScalarProperty Name="ciudad_cliente" ColumnName="ciudad_cliente" />
+          <ScalarProperty Name="calle_cliente" ColumnName="calle_cliente" />
+          <ScalarProperty Name="zip_code_cliente" ColumnName="zip_code_cliente" />
+          <ScalarProperty Name="vip" ColumnName="vip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estado_habitacion">
+      <EntityTypeMapping TypeName="HotelSOLModel.estado_habitacion">
+        <MappingFragment StoreEntitySet="estado_habitacion">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="nombre_estado" ColumnName="nombre_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facturaEmitida">
+      <EntityTypeMapping TypeName="HotelSOLModel.facturaEmitida">
+        <MappingFragment StoreEntitySet="facturaEmitida">
+          <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="nif_facturaEmitida" ColumnName="nif_facturaEmitida" />
+          <ScalarProperty Name="import_base" ColumnName="import_base" />
+          <ScalarProperty Name="import_liquido" ColumnName="import_liquido" />
+          <ScalarProperty Name="iva_factura" ColumnName="iva_factura" />
+          <ScalarProperty Name="nombreLegal" ColumnName="nombreLegal" />
+          <ScalarProperty Name="fecha_facturaEmitida" ColumnName="fecha_facturaEmitida" />
+          <ScalarProperty Name="comentari_facturaEmitida" ColumnName="comentari_facturaEmitida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="habitacion">
+      <EntityTypeMapping TypeName="HotelSOLModel.habitacion">
+        <MappingFragment StoreEntitySet="habitacion">
+          <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+          <ScalarProperty Name="numero_habitacion" ColumnName="numero_habitacion" />
+          <ScalarProperty Name="id_tipo_habitacion" ColumnName="id_tipo_habitacion" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="precio_habitacion" ColumnName="precio_habitacion" />
+          <ScalarProperty Name="discapacidad_habitacion" ColumnName="discapacidad_habitacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reserva">
+      <EntityTypeMapping TypeName="HotelSOLModel.reserva">
+        <MappingFragment StoreEntitySet="reserva">
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="id_temporada" ColumnName="id_temporada" />
+          <ScalarProperty Name="metodo_pago" ColumnName="metodo_pago" />
+          <ScalarProperty Name="num_personas" ColumnName="num_personas" />
+          <ScalarProperty Name="discapacidad" ColumnName="discapacidad" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="sw_factura" ColumnName="sw_factura" />
+          <ScalarProperty Name="id_pension" ColumnName="id_pension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reserva_servicioExtra">
+      <EntityTypeMapping TypeName="HotelSOLModel.reserva_servicioExtra">
+        <MappingFragment StoreEntitySet="reserva_servicioExtra">
+          <ScalarProperty Name="id_servicioExtra" ColumnName="id_servicioExtra" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="id_extra" ColumnName="id_extra" />
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicioExtra">
+      <EntityTypeMapping TypeName="HotelSOLModel.servicioExtra">
+        <MappingFragment StoreEntitySet="servicioExtra">
+          <ScalarProperty Name="id_extra" ColumnName="id_extra" />
+          <ScalarProperty Name="nombre_extra" ColumnName="nombre_extra" />
+          <ScalarProperty Name="precio_extra" ColumnName="precio_extra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicioReestauranteOtros">
+      <EntityTypeMapping TypeName="HotelSOLModel.servicioReestauranteOtros">
+        <MappingFragment StoreEntitySet="servicioReestauranteOtros">
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="nombre_servicio" ColumnName="nombre_servicio" />
+          <ScalarProperty Name="precio_servicio" ColumnName="precio_servicio" />
+          <ScalarProperty Name="comentario_servicio" ColumnName="comentario_servicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HotelSOLModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="temporada">
+      <EntityTypeMapping TypeName="HotelSOLModel.temporada">
+        <MappingFragment StoreEntitySet="temporada">
+          <ScalarProperty Name="id_temporada" ColumnName="id_temporada" />
+          <ScalarProperty Name="nombre_temporada" ColumnName="nombre_temporada" />
+          <ScalarProperty Name="multiplicador_temporada" ColumnName="multiplicador_temporada" />
+          <ScalarProperty Name="extra_temporada" ColumnName="extra_temporada" />
+          <ScalarProperty Name="fecha_inicio_temporada" ColumnName="fecha_inicio_temporada" />
+          <ScalarProperty Name="fecha_fin_temporada" ColumnName="fecha_fin_temporada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_habitacion">
+      <EntityTypeMapping TypeName="HotelSOLModel.tipo_habitacion">
+        <MappingFragment StoreEntitySet="tipo_habitacion">
+          <ScalarProperty Name="id_tipo_habitacion" ColumnName="id_tipo_habitacion" />
+          <ScalarProperty Name="nombre_tipo" ColumnName="nombre_tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoPension">
+      <EntityTypeMapping TypeName="HotelSOLModel.tipoPension">
+        <MappingFragment StoreEntitySet="tipoPension">
+          <ScalarProperty Name="id_pension" ColumnName="id_pension" />
+          <ScalarProperty Name="nombre_pension" ColumnName="nombre_pension" />
+          <ScalarProperty Name="precio_pension" ColumnName="precio_pension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="HotelSOLModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="apellido1_usuario" ColumnName="apellido1_usuario" />
+          <ScalarProperty Name="apellido2_usuario" ColumnName="apellido2_usuario" />
+          <ScalarProperty Name="fecha_alta_usuario" ColumnName="fecha_alta_usuario" />
+          <ScalarProperty Name="fecha_baja_usuario" ColumnName="fecha_baja_usuario" />
+          <ScalarProperty Name="fecha_ultima_conexion_usuario" ColumnName="fecha_ultima_conexion_usuario" />
+          <ScalarProperty Name="permisos_usuario" ColumnName="permisos_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="historico">
+      <EntityTypeMapping TypeName="HotelSOLModel.historico">
+        <MappingFragment StoreEntitySet="historico">
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="metodo_pago" ColumnName="metodo_pago" />
+          <ScalarProperty Name="num_personas" ColumnName="num_personas" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="sw_factura" ColumnName="sw_factura" />
+          <ScalarProperty Name="total_precio" ColumnName="total_precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="login_test">
+      <EntityTypeMapping TypeName="HotelSOLModel.login_test">
+        <MappingFragment StoreEntitySet="login_test">
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

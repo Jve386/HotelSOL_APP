@@ -1,0 +1,17 @@
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\bin\Debug\HotelSOL.exe.config
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\bin\Debug\HotelSOL.exe
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\bin\Debug\HotelSOL.pdb
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.csproj.AssemblyReference.cache
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.Form1.resources
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.Properties.Resources.resources
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.csproj.GenerateResource.cache
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.csproj.CoreCompileInputs.cache
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.exe
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.pdb
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.PL.MenuForm.resources
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.DAL.ImportarXML.resources
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\bin\Debug\EntityFramework.dll
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\bin\Debug\EntityFramework.xml
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Naguru\source\repos\HotelSOL\HotelSOL\obj\Debug\HotelSOL.csproj.CopyComplete
