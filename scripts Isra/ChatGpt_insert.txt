@@ -85,7 +85,7 @@ VALUES
 /*-----------------------Factura---------------------------------------------*/
 
 -- Insertar 3 registros en la tabla Factura
-INSERT INTO Factura (numero_factura, fecha_emision, total, idReserva)
+INSERT INTO Factura (numero_factura, fecha_emision, total, idReserva_id)
 VALUES
     (1001, '2023-07-20', 600.00, 1),  -- Asociado a la reserva con id 1
     (1002, '2023-08-15', 500.00, 2),  -- Asociado a la reserva con id 2
