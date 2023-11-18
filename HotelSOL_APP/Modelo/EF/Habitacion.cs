@@ -26,14 +26,12 @@ namespace Modelo.EF
         public Nullable<int> capacidad { get; set; }
         public Nullable<decimal> precio { get; set; }
         public Nullable<int> estado_id { get; set; }
-        public Nullable<int> temporada_id { get; set; }
         public Nullable<int> servicio_id { get; set; }
         public Nullable<int> pension_id { get; set; }
     
         public virtual EstadoHabitacion EstadoHabitacion { get; set; }
         public virtual Pension Pension { get; set; }
         public virtual ServicioHabitacion ServicioHabitacion { get; set; }
-        public virtual Temporada Temporada { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reserva> Reserva { get; set; }
     }

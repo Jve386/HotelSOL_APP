@@ -22,12 +22,16 @@ namespace Modelo.EF
     
         public int idReserva { get; set; }
         public Nullable<int> idUsuario_id { get; set; }
+        public Nullable<int> cIdCliente_id { get; set; }
         public Nullable<int> idHabitacion_id { get; set; }
         public Nullable<int> idServicio_id { get; set; }
         public System.DateTime fecha_inicio { get; set; }
         public System.DateTime fecha_fin { get; set; }
         public decimal total { get; set; }
+        public Nullable<byte> temporada { get; set; }
+        public string pension { get; set; }
     
+        public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Factura { get; set; }
         public virtual Habitacion Habitacion { get; set; }

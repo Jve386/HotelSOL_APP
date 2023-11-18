@@ -17,7 +17,7 @@ namespace Modelo.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cliente()
         {
-            this.UsuarioLogin = new HashSet<UsuarioLogin>();
+            this.Reserva = new HashSet<Reserva>();
         }
     
         public int cIdCliente { get; set; }
@@ -29,9 +29,10 @@ namespace Modelo.EF
         public string cCiudad { get; set; }
         public string cCalle { get; set; }
         public string cZipcode { get; set; }
-        public string cTipocliente { get; set; }
+        public string cCorreoElectronico { get; set; }
+        public string cTipoCliente { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsuarioLogin> UsuarioLogin { get; set; }
+        public virtual ICollection<Reserva> Reserva { get; set; }
     }
 }

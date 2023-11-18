@@ -13,10 +13,10 @@ namespace Modelo.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HotelSol_01Entities : DbContext
+    public partial class HotelSol_01Entities2 : DbContext
     {
-        public HotelSol_01Entities()
-            : base("name=HotelSol_01Entities")
+        public HotelSol_01Entities2()
+            : base("name=HotelSol_01Entities2")
         {
         }
     
@@ -33,7 +33,7 @@ namespace Modelo.EF
         public virtual DbSet<Reserva> Reserva { get; set; }
         public virtual DbSet<Servicio> Servicio { get; set; }
         public virtual DbSet<ServicioHabitacion> ServicioHabitacion { get; set; }
-        public virtual DbSet<Temporada> Temporada { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UsuarioLogin> UsuarioLogin { get; set; }
     }
 }

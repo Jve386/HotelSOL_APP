@@ -18,7 +18,8 @@
           <Property Name="cCiudad" Type="nvarchar" MaxLength="100" />
           <Property Name="cCalle" Type="nvarchar" MaxLength="255" />
           <Property Name="cZipcode" Type="nvarchar" MaxLength="20" />
-          <Property Name="cTipocliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="cCorreoElectronico" Type="nvarchar" MaxLength="255" />
+          <Property Name="cTipoCliente" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EstadoHabitacion">
           <Key>
@@ -34,7 +35,7 @@
           <Property Name="idFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="numero_factura" Type="int" Nullable="false" />
           <Property Name="fecha_emision" Type="date" Nullable="false" />
-          <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="totalFactura" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="idReserva_id" Type="int" />
         </EntityType>
         <EntityType Name="Habitacion">
@@ -47,7 +48,6 @@
           <Property Name="capacidad" Type="int" />
           <Property Name="precio" Type="decimal" Precision="10" Scale="2" />
           <Property Name="estado_id" Type="int" />
-          <Property Name="temporada_id" Type="int" />
           <Property Name="servicio_id" Type="int" />
           <Property Name="pension_id" Type="int" />
         </EntityType>
@@ -65,11 +65,14 @@
           </Key>
           <Property Name="idReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idUsuario_id" Type="int" />
+          <Property Name="cIdCliente_id" Type="int" />
           <Property Name="idHabitacion_id" Type="int" />
           <Property Name="idServicio_id" Type="int" />
           <Property Name="fecha_inicio" Type="date" Nullable="false" />
           <Property Name="fecha_fin" Type="date" Nullable="false" />
           <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="temporada" Type="tinyint" />
+          <Property Name="pension" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Servicio">
           <Key>
@@ -87,15 +90,23 @@
           <Property Name="idServicioHabitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="descripcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="opcion1" Type="nvarchar" MaxLength="100" />
+          <Property Name="opcion2" Type="nvarchar" MaxLength="100" />
+          <Property Name="opcion3" Type="nvarchar" MaxLength="100" />
+          <Property Name="opcion4" Type="nvarchar" MaxLength="100" />
+          <Property Name="opcion5" Type="nvarchar" MaxLength="100" />
+          <Property Name="opcion6" Type="nvarchar" MaxLength="100" />
+          <Property Name="opcion7" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="Temporada">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="idTemporada" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="idTemporada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="fecha_inicio" Type="date" />
-          <Property Name="fecha_fin" Type="date" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="UsuarioLogin">
           <Key>
@@ -104,7 +115,7 @@
           <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="uCorreo_electronico" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="uContrasena" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="cIdCliente" Type="int" />
+          <Property Name="nivelUsuario" Type="int" />
         </EntityType>
         <Association Name="FK__Factura__idReser__628FA481">
           <End Role="Reserva" Type="Self.Reserva" Multiplicity="0..1" />
@@ -130,7 +141,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Habitacio__pensi__59063A47">
+        <Association Name="FK__Habitacio__pensi__5812160E">
           <End Role="Pension" Type="Self.Pension" Multiplicity="0..1" />
           <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -142,7 +153,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Habitacio__servi__5812160E">
+        <Association Name="FK__Habitacio__servi__571DF1D5">
           <End Role="ServicioHabitacion" Type="Self.ServicioHabitacion" Multiplicity="0..1" />
           <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,15 +165,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Habitacio__tempo__571DF1D5">
-          <End Role="Temporada" Type="Self.Temporada" Multiplicity="0..1" />
-          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
+        <Association Name="FK__Reserva__cIdClie__5DCAEF64">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Temporada">
-              <PropertyRef Name="idTemporada" />
+            <Principal Role="Cliente">
+              <PropertyRef Name="cIdCliente" />
             </Principal>
-            <Dependent Role="Habitacion">
-              <PropertyRef Name="temporada_id" />
+            <Dependent Role="Reserva">
+              <PropertyRef Name="cIdCliente_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -190,7 +201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Reserva__idUsuar__5DCAEF64">
+        <Association Name="FK__Reserva__idUsuar__5CD6CB2B">
           <End Role="UsuarioLogin" Type="Self.UsuarioLogin" Multiplicity="0..1" />
           <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -199,18 +210,6 @@
             </Principal>
             <Dependent Role="Reserva">
               <PropertyRef Name="idUsuario_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__UsuarioLo__cIdCl__4BAC3F29">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
-          <End Role="UsuarioLogin" Type="Self.UsuarioLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cliente">
-              <PropertyRef Name="cIdCliente" />
-            </Principal>
-            <Dependent Role="UsuarioLogin">
-              <PropertyRef Name="cIdCliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -223,7 +222,7 @@
           <EntitySet Name="Reserva" EntityType="Self.Reserva" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServicioHabitacion" EntityType="Self.ServicioHabitacion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Temporada" EntityType="Self.Temporada" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsuarioLogin" EntityType="Self.UsuarioLogin" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Factura__idReser__628FA481" Association="Self.FK__Factura__idReser__628FA481">
             <End Role="Reserva" EntitySet="Reserva" />
@@ -233,17 +232,17 @@
             <End Role="EstadoHabitacion" EntitySet="EstadoHabitacion" />
             <End Role="Habitacion" EntitySet="Habitacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Habitacio__pensi__59063A47" Association="Self.FK__Habitacio__pensi__59063A47">
+          <AssociationSet Name="FK__Habitacio__pensi__5812160E" Association="Self.FK__Habitacio__pensi__5812160E">
             <End Role="Pension" EntitySet="Pension" />
             <End Role="Habitacion" EntitySet="Habitacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Habitacio__servi__5812160E" Association="Self.FK__Habitacio__servi__5812160E">
+          <AssociationSet Name="FK__Habitacio__servi__571DF1D5" Association="Self.FK__Habitacio__servi__571DF1D5">
             <End Role="ServicioHabitacion" EntitySet="ServicioHabitacion" />
             <End Role="Habitacion" EntitySet="Habitacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Habitacio__tempo__571DF1D5" Association="Self.FK__Habitacio__tempo__571DF1D5">
-            <End Role="Temporada" EntitySet="Temporada" />
-            <End Role="Habitacion" EntitySet="Habitacion" />
+          <AssociationSet Name="FK__Reserva__cIdClie__5DCAEF64" Association="Self.FK__Reserva__cIdClie__5DCAEF64">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reserva" EntitySet="Reserva" />
           </AssociationSet>
           <AssociationSet Name="FK__Reserva__idHabit__5EBF139D" Association="Self.FK__Reserva__idHabit__5EBF139D">
             <End Role="Habitacion" EntitySet="Habitacion" />
@@ -253,13 +252,9 @@
             <End Role="Servicio" EntitySet="Servicio" />
             <End Role="Reserva" EntitySet="Reserva" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reserva__idUsuar__5DCAEF64" Association="Self.FK__Reserva__idUsuar__5DCAEF64">
+          <AssociationSet Name="FK__Reserva__idUsuar__5CD6CB2B" Association="Self.FK__Reserva__idUsuar__5CD6CB2B">
             <End Role="UsuarioLogin" EntitySet="UsuarioLogin" />
             <End Role="Reserva" EntitySet="Reserva" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UsuarioLo__cIdCl__4BAC3F29" Association="Self.FK__UsuarioLo__cIdCl__4BAC3F29">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="UsuarioLogin" EntitySet="UsuarioLogin" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -280,8 +275,9 @@
           <Property Name="cCiudad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cCalle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="cZipcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="cTipocliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="UsuarioLogin" Relationship="Self.FK__UsuarioLo__cIdCl__4BAC3F29" FromRole="Cliente" ToRole="UsuarioLogin" />
+          <Property Name="cCorreoElectronico" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cTipoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__cIdClie__5DCAEF64" FromRole="Cliente" ToRole="Reserva" />
         </EntityType>
         <EntityType Name="EstadoHabitacion">
           <Key>
@@ -298,7 +294,7 @@
           <Property Name="idFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="numero_factura" Type="Int32" Nullable="false" />
           <Property Name="fecha_emision" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="totalFactura" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="idReserva_id" Type="Int32" />
           <NavigationProperty Name="Reserva" Relationship="Self.FK__Factura__idReser__628FA481" FromRole="Factura" ToRole="Reserva" />
         </EntityType>
@@ -312,13 +308,11 @@
           <Property Name="capacidad" Type="Int32" />
           <Property Name="precio" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="estado_id" Type="Int32" />
-          <Property Name="temporada_id" Type="Int32" />
           <Property Name="servicio_id" Type="Int32" />
           <Property Name="pension_id" Type="Int32" />
           <NavigationProperty Name="EstadoHabitacion" Relationship="Self.FK__Habitacio__estad__5629CD9C" FromRole="Habitacion" ToRole="EstadoHabitacion" />
-          <NavigationProperty Name="Pension" Relationship="Self.FK__Habitacio__pensi__59063A47" FromRole="Habitacion" ToRole="Pension" />
-          <NavigationProperty Name="ServicioHabitacion" Relationship="Self.FK__Habitacio__servi__5812160E" FromRole="Habitacion" ToRole="ServicioHabitacion" />
-          <NavigationProperty Name="Temporada" Relationship="Self.FK__Habitacio__tempo__571DF1D5" FromRole="Habitacion" ToRole="Temporada" />
+          <NavigationProperty Name="Pension" Relationship="Self.FK__Habitacio__pensi__5812160E" FromRole="Habitacion" ToRole="Pension" />
+          <NavigationProperty Name="ServicioHabitacion" Relationship="Self.FK__Habitacio__servi__571DF1D5" FromRole="Habitacion" ToRole="ServicioHabitacion" />
           <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__idHabit__5EBF139D" FromRole="Habitacion" ToRole="Reserva" />
         </EntityType>
         <EntityType Name="Pension">
@@ -328,7 +322,7 @@
           <Property Name="idPension" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Habitacion" Relationship="Self.FK__Habitacio__pensi__59063A47" FromRole="Pension" ToRole="Habitacion" />
+          <NavigationProperty Name="Habitacion" Relationship="Self.FK__Habitacio__pensi__5812160E" FromRole="Pension" ToRole="Habitacion" />
         </EntityType>
         <EntityType Name="Reserva">
           <Key>
@@ -336,15 +330,19 @@
           </Key>
           <Property Name="idReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idUsuario_id" Type="Int32" />
+          <Property Name="cIdCliente_id" Type="Int32" />
           <Property Name="idHabitacion_id" Type="Int32" />
           <Property Name="idServicio_id" Type="Int32" />
           <Property Name="fecha_inicio" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="fecha_fin" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="temporada" Type="Byte" />
+          <Property Name="pension" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Reserva__cIdClie__5DCAEF64" FromRole="Reserva" ToRole="Cliente" />
           <NavigationProperty Name="Factura" Relationship="Self.FK__Factura__idReser__628FA481" FromRole="Reserva" ToRole="Factura" />
           <NavigationProperty Name="Habitacion" Relationship="Self.FK__Reserva__idHabit__5EBF139D" FromRole="Reserva" ToRole="Habitacion" />
           <NavigationProperty Name="Servicio" Relationship="Self.FK__Reserva__idServi__5FB337D6" FromRole="Reserva" ToRole="Servicio" />
-          <NavigationProperty Name="UsuarioLogin" Relationship="Self.FK__Reserva__idUsuar__5DCAEF64" FromRole="Reserva" ToRole="UsuarioLogin" />
+          <NavigationProperty Name="UsuarioLogin" Relationship="Self.FK__Reserva__idUsuar__5CD6CB2B" FromRole="Reserva" ToRole="UsuarioLogin" />
         </EntityType>
         <EntityType Name="Servicio">
           <Key>
@@ -363,17 +361,24 @@
           <Property Name="idServicioHabitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Habitacion" Relationship="Self.FK__Habitacio__servi__5812160E" FromRole="ServicioHabitacion" ToRole="Habitacion" />
+          <Property Name="opcion1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="opcion2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="opcion3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="opcion4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="opcion5" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="opcion6" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="opcion7" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Habitacion" Relationship="Self.FK__Habitacio__servi__571DF1D5" FromRole="ServicioHabitacion" ToRole="Habitacion" />
         </EntityType>
-        <EntityType Name="Temporada">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="idTemporada" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="idTemporada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
-          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Habitacion" Relationship="Self.FK__Habitacio__tempo__571DF1D5" FromRole="Temporada" ToRole="Habitacion" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="UsuarioLogin">
           <Key>
@@ -382,19 +387,18 @@
           <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="uCorreo_electronico" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uContrasena" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cIdCliente" Type="Int32" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK__UsuarioLo__cIdCl__4BAC3F29" FromRole="UsuarioLogin" ToRole="Cliente" />
-          <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__idUsuar__5DCAEF64" FromRole="UsuarioLogin" ToRole="Reserva" />
+          <Property Name="nivelUsuario" Type="Int32" />
+          <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__idUsuar__5CD6CB2B" FromRole="UsuarioLogin" ToRole="Reserva" />
         </EntityType>
-        <Association Name="FK__UsuarioLo__cIdCl__4BAC3F29">
+        <Association Name="FK__Reserva__cIdClie__5DCAEF64">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
-          <End Role="UsuarioLogin" Type="Self.UsuarioLogin" Multiplicity="*" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="cIdCliente" />
             </Principal>
-            <Dependent Role="UsuarioLogin">
-              <PropertyRef Name="cIdCliente" />
+            <Dependent Role="Reserva">
+              <PropertyRef Name="cIdCliente_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -422,7 +426,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Habitacio__pensi__59063A47">
+        <Association Name="FK__Habitacio__pensi__5812160E">
           <End Role="Pension" Type="Self.Pension" Multiplicity="0..1" />
           <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -434,7 +438,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Habitacio__servi__5812160E">
+        <Association Name="FK__Habitacio__servi__571DF1D5">
           <End Role="ServicioHabitacion" Type="Self.ServicioHabitacion" Multiplicity="0..1" />
           <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -443,18 +447,6 @@
             </Principal>
             <Dependent Role="Habitacion">
               <PropertyRef Name="servicio_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Habitacio__tempo__571DF1D5">
-          <End Role="Temporada" Type="Self.Temporada" Multiplicity="0..1" />
-          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Temporada">
-              <PropertyRef Name="idTemporada" />
-            </Principal>
-            <Dependent Role="Habitacion">
-              <PropertyRef Name="temporada_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -482,7 +474,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Reserva__idUsuar__5DCAEF64">
+        <Association Name="FK__Reserva__idUsuar__5CD6CB2B">
           <End Role="UsuarioLogin" Type="Self.UsuarioLogin" Multiplicity="0..1" />
           <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -494,7 +486,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HotelSol_01Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HotelSol_01Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="EstadoHabitacion" EntityType="Self.EstadoHabitacion" />
           <EntitySet Name="Factura" EntityType="Self.Factura" />
@@ -503,11 +495,11 @@
           <EntitySet Name="Reserva" EntityType="Self.Reserva" />
           <EntitySet Name="Servicio" EntityType="Self.Servicio" />
           <EntitySet Name="ServicioHabitacion" EntityType="Self.ServicioHabitacion" />
-          <EntitySet Name="Temporada" EntityType="Self.Temporada" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="UsuarioLogin" EntityType="Self.UsuarioLogin" />
-          <AssociationSet Name="FK__UsuarioLo__cIdCl__4BAC3F29" Association="Self.FK__UsuarioLo__cIdCl__4BAC3F29">
+          <AssociationSet Name="FK__Reserva__cIdClie__5DCAEF64" Association="Self.FK__Reserva__cIdClie__5DCAEF64">
             <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="UsuarioLogin" EntitySet="UsuarioLogin" />
+            <End Role="Reserva" EntitySet="Reserva" />
           </AssociationSet>
           <AssociationSet Name="FK__Habitacio__estad__5629CD9C" Association="Self.FK__Habitacio__estad__5629CD9C">
             <End Role="EstadoHabitacion" EntitySet="EstadoHabitacion" />
@@ -517,16 +509,12 @@
             <End Role="Reserva" EntitySet="Reserva" />
             <End Role="Factura" EntitySet="Factura" />
           </AssociationSet>
-          <AssociationSet Name="FK__Habitacio__pensi__59063A47" Association="Self.FK__Habitacio__pensi__59063A47">
+          <AssociationSet Name="FK__Habitacio__pensi__5812160E" Association="Self.FK__Habitacio__pensi__5812160E">
             <End Role="Pension" EntitySet="Pension" />
             <End Role="Habitacion" EntitySet="Habitacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Habitacio__servi__5812160E" Association="Self.FK__Habitacio__servi__5812160E">
+          <AssociationSet Name="FK__Habitacio__servi__571DF1D5" Association="Self.FK__Habitacio__servi__571DF1D5">
             <End Role="ServicioHabitacion" EntitySet="ServicioHabitacion" />
-            <End Role="Habitacion" EntitySet="Habitacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Habitacio__tempo__571DF1D5" Association="Self.FK__Habitacio__tempo__571DF1D5">
-            <End Role="Temporada" EntitySet="Temporada" />
             <End Role="Habitacion" EntitySet="Habitacion" />
           </AssociationSet>
           <AssociationSet Name="FK__Reserva__idHabit__5EBF139D" Association="Self.FK__Reserva__idHabit__5EBF139D">
@@ -537,7 +525,7 @@
             <End Role="Servicio" EntitySet="Servicio" />
             <End Role="Reserva" EntitySet="Reserva" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reserva__idUsuar__5DCAEF64" Association="Self.FK__Reserva__idUsuar__5DCAEF64">
+          <AssociationSet Name="FK__Reserva__idUsuar__5CD6CB2B" Association="Self.FK__Reserva__idUsuar__5CD6CB2B">
             <End Role="UsuarioLogin" EntitySet="UsuarioLogin" />
             <End Role="Reserva" EntitySet="Reserva" />
           </AssociationSet>
@@ -547,7 +535,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HotelSol_01ModelStoreContainer" CdmEntityContainer="HotelSol_01Entities">
+        <EntityContainerMapping StorageEntityContainer="HotelSol_01ModelStoreContainer" CdmEntityContainer="HotelSol_01Entities2">
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="HotelSol_01Model.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
@@ -560,7 +548,8 @@
                 <ScalarProperty Name="cCiudad" ColumnName="cCiudad" />
                 <ScalarProperty Name="cCalle" ColumnName="cCalle" />
                 <ScalarProperty Name="cZipcode" ColumnName="cZipcode" />
-                <ScalarProperty Name="cTipocliente" ColumnName="cTipocliente" />
+                <ScalarProperty Name="cCorreoElectronico" ColumnName="cCorreoElectronico" />
+                <ScalarProperty Name="cTipoCliente" ColumnName="cTipoCliente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -578,7 +567,7 @@
                 <ScalarProperty Name="idFactura" ColumnName="idFactura" />
                 <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
                 <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
-                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="totalFactura" ColumnName="totalFactura" />
                 <ScalarProperty Name="idReserva_id" ColumnName="idReserva_id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -592,7 +581,6 @@
                 <ScalarProperty Name="capacidad" ColumnName="capacidad" />
                 <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="estado_id" ColumnName="estado_id" />
-                <ScalarProperty Name="temporada_id" ColumnName="temporada_id" />
                 <ScalarProperty Name="servicio_id" ColumnName="servicio_id" />
                 <ScalarProperty Name="pension_id" ColumnName="pension_id" />
               </MappingFragment>
@@ -612,11 +600,14 @@
               <MappingFragment StoreEntitySet="Reserva">
                 <ScalarProperty Name="idReserva" ColumnName="idReserva" />
                 <ScalarProperty Name="idUsuario_id" ColumnName="idUsuario_id" />
+                <ScalarProperty Name="cIdCliente_id" ColumnName="cIdCliente_id" />
                 <ScalarProperty Name="idHabitacion_id" ColumnName="idHabitacion_id" />
                 <ScalarProperty Name="idServicio_id" ColumnName="idServicio_id" />
                 <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
                 <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
                 <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="temporada" ColumnName="temporada" />
+                <ScalarProperty Name="pension" ColumnName="pension" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -636,16 +627,24 @@
                 <ScalarProperty Name="idServicioHabitacion" ColumnName="idServicioHabitacion" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="opcion1" ColumnName="opcion1" />
+                <ScalarProperty Name="opcion2" ColumnName="opcion2" />
+                <ScalarProperty Name="opcion3" ColumnName="opcion3" />
+                <ScalarProperty Name="opcion4" ColumnName="opcion4" />
+                <ScalarProperty Name="opcion5" ColumnName="opcion5" />
+                <ScalarProperty Name="opcion6" ColumnName="opcion6" />
+                <ScalarProperty Name="opcion7" ColumnName="opcion7" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Temporada">
-            <EntityTypeMapping TypeName="HotelSol_01Model.Temporada">
-              <MappingFragment StoreEntitySet="Temporada">
-                <ScalarProperty Name="idTemporada" ColumnName="idTemporada" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
-                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HotelSol_01Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -655,7 +654,7 @@
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="uCorreo_electronico" ColumnName="uCorreo_electronico" />
                 <ScalarProperty Name="uContrasena" ColumnName="uContrasena" />
-                <ScalarProperty Name="cIdCliente" ColumnName="cIdCliente" />
+                <ScalarProperty Name="nivelUsuario" ColumnName="nivelUsuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

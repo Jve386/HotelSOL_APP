@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="117938a03ae0475b94e311c04a9077ee" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelSol_01Model.Cliente" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelSol_01Model.EstadoHabitacion" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelSol_01Model.Factura" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelSol_01Model.Habitacion" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelSol_01Model.Pension" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelSol_01Model.Reserva" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelSol_01Model.Servicio" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelSol_01Model.ServicioHabitacion" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelSol_01Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelSol_01Model.UsuarioLogin" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <AssociationConnector Association="HotelSol_01Model.FK__Reserva__cIdClie__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelSol_01Model.FK__Habitacio__estad__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelSol_01Model.FK__Factura__idReser__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelSol_01Model.FK__Habitacio__pensi__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelSol_01Model.FK__Habitacio__servi__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelSol_01Model.FK__Reserva__idHabit__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelSol_01Model.FK__Reserva__idServi__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelSol_01Model.FK__Reserva__idUsuar__5CD6CB2B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

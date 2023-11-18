@@ -10,7 +10,7 @@ namespace Controlador
     {
         public IEnumerable<Modelo.UserViewModel> GetList() {
 
-            using (Modelo.EF.HotelSol_01Entities db = new Modelo.EF.HotelSol_01Entities()) 
+            using (Modelo.EF.HotelSol_01Entities2 db = new Modelo.EF.HotelSol_01Entities2()) 
             {
                 IEnumerable<Modelo.UserViewModel> lst = (from d in db.UsuarioLogin
                                                         select new Modelo.UserViewModel

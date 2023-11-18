@@ -12,14 +12,12 @@ namespace Modelo.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Factura
+    public partial class sysdiagrams
     {
-        public int idFactura { get; set; }
-        public int numero_factura { get; set; }
-        public System.DateTime fecha_emision { get; set; }
-        public decimal totalFactura { get; set; }
-        public Nullable<int> idReserva_id { get; set; }
-    
-        public virtual Reserva Reserva { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
