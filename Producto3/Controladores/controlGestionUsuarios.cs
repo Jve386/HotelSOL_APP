@@ -8,7 +8,7 @@ namespace Controladores
 {
     public class controlGestionUsuarios
     { 
-        public IEnumerable<Modelos.UserViewModel> GetList() {
+       /* public IEnumerable<Modelos.UserViewModel> GetList() {
 
             using (Modelos.EF.HotelSol_03Entities db = new Modelos.EF.HotelSol_03Entities())
             {
@@ -24,7 +24,7 @@ namespace Controladores
             
 
             
-        }
+       }*/ 
     }
        
 }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace HotelSol
 {
-    internal static class Program
+    internal static class Inicio
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.

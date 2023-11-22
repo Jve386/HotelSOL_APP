@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Controladores;
+using System;
+using System.Windows.Forms;
 
 namespace HotelSol
 {
-    partial class accesoUsuario
+    partial class accesoUsuario 
     {
         /// <summary>
         /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private Controladores.controlAccesoUsuario oControlAccesoUsuario = new controlAccesoUsuario();
 
         /// <summary>
         /// Limpiar los recursos que se estén usando.
@@ -22,13 +25,16 @@ namespace HotelSol
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de Windows Forms
 
-        /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
-        /// </summary>
-        private void InitializeComponent()
+
+
+#region Código generado por el Diseñador de Windows Forms
+
+/// <summary>
+/// Método necesario para admitir el Diseñador. No se puede modificar
+/// el contenido de este método con el editor de código.
+/// </summary>
+private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +53,7 @@ namespace HotelSol
             this.button1.TabIndex = 0;
             this.button1.Text = "Acceder";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.acceder_Click);//Aqui agrego el evento que es acceso usuario load
             // 
             // label1
             // 
@@ -111,10 +118,26 @@ namespace HotelSol
 
         }
 
+        private void acceder_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Acceso Usuario");
+            if (oControlAccesoUsuario.ValidarUsuario(textBox1.Text, textBox2.Text))
+            {
+                Console.WriteLine("Acceso Usuario");
+                this.Hide();
+                new opcionesGestion().Show();
+            }
+            else
+            {
+                Console.WriteLine("Acceso Usuario");
+                MessageBox.Show("Usuario o contraseña incorrectos");
+            }
+        }
         private void accesoUsuario_Load(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
+
 
         #endregion
 

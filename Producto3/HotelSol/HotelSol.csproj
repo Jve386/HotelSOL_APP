@@ -74,7 +74,7 @@
     <Compile Include="opcionesGestion.Designer.cs">
       <DependentUpon>opcionesGestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Inicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="accesoUsuario.resx">
       <DependentUpon>accesoUsuario.cs</DependentUpon>

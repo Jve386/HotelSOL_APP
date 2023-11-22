@@ -1,4 +1,6 @@
-﻿namespace HotelSol
+﻿using System;
+
+namespace HotelSol
 {
     partial class opcionesGestion
     {
@@ -109,9 +111,15 @@
             this.Controls.Add(this.button1);
             this.Name = "opcionesGestion";
             this.Text = "opcionesGestion";
+            this.Load += new System.EventHandler(this.opcionesGestion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void opcionesGestion_Load(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
