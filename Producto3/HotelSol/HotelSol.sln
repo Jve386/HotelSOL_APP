@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSol", "HotelSol.csproj", "{BD58ED8B-8534-45EF-BD01-B0510CA0D5D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controladores", "..\Controladores\Controladores.csproj", "{33E1F860-699A-438C-BA83-96FA73E9A986}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "..\Modelos\Modelos.csproj", "{0139E2DD-03C6-4158-9E8E-3B15B9C90FD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD58ED8B-8534-45EF-BD01-B0510CA0D5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD58ED8B-8534-45EF-BD01-B0510CA0D5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD58ED8B-8534-45EF-BD01-B0510CA0D5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD58ED8B-8534-45EF-BD01-B0510CA0D5D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33E1F860-699A-438C-BA83-96FA73E9A986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E1F860-699A-438C-BA83-96FA73E9A986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E1F860-699A-438C-BA83-96FA73E9A986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E1F860-699A-438C-BA83-96FA73E9A986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0139E2DD-03C6-4158-9E8E-3B15B9C90FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0139E2DD-03C6-4158-9E8E-3B15B9C90FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0139E2DD-03C6-4158-9E8E-3B15B9C90FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0139E2DD-03C6-4158-9E8E-3B15B9C90FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {755D428C-B2A5-4985-A7C4-76995C3DC005}
+	EndGlobalSection
+EndGlobal
