@@ -1,0 +1,34 @@
+C:\Users\Israel\source\repos\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\Israel\source\repos\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\Israel\source\repos\Controlador\bin\Debug\Controlador.dll.config
+C:\Users\Israel\source\repos\Controlador\bin\Debug\Controlador.dll
+C:\Users\Israel\source\repos\Controlador\bin\Debug\Controlador.pdb
+C:\Users\Israel\source\repos\Controlador\bin\Debug\EntityFramework.dll
+C:\Users\Israel\source\repos\Controlador\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Israel\source\repos\Controlador\bin\Debug\Modelo.dll
+C:\Users\Israel\source\repos\Controlador\bin\Debug\Modelo.pdb
+C:\Users\Israel\source\repos\Controlador\bin\Debug\Modelo.dll.config
+C:\Users\Israel\source\repos\Controlador\bin\Debug\EntityFramework.xml
+C:\Users\Israel\source\repos\Controlador\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Israel\source\repos\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+C:\Users\Israel\source\repos\Controlador\obj\Debug\Controlador.dll
+C:\Users\Israel\source\repos\Controlador\obj\Debug\Controlador.pdb
+C:\Users\Israel\source\repos\Controlador\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Israel\source\repos\Controlador\bin\Debug\BouncyCastle.Crypto.xml
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\Controlador.dll.config
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\Controlador.dll
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\Controlador.pdb
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\BouncyCastle.Crypto.dll
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\EntityFramework.dll
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\EntityFramework.SqlServer.dll
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\Modelo.dll
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\Modelo.pdb
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\Modelo.dll.config
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\BouncyCastle.Crypto.xml
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\EntityFramework.xml
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\bin\Debug\EntityFramework.SqlServer.xml
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\obj\Debug\Controlador.dll
+C:\Programacion\Proyecto NET y ERP\HotelSOL\Controlador\obj\Debug\Controlador.pdb
