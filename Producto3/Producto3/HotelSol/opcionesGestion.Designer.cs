@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace HotelSol
 {
-    partial class opcionesGestion
+    public partial class opcionesGestion : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -67,6 +68,7 @@ namespace HotelSol
             this.button3.TabIndex = 2;
             this.button3.Text = "Gestion Usuarios";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -116,10 +118,10 @@ namespace HotelSol
             this.PerformLayout();
 
         }
-
+       
         private void opcionesGestion_Load(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         #endregion

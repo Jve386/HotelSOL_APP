@@ -4,13 +4,15 @@ using System.Windows.Forms;
 
 namespace HotelSol
 {
-    partial class accesoUsuario 
+    public partial class accesoUsuario : Form
     {
         /// <summary>
         /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private Controladores.controlAccesoUsuario oControlAccesoUsuario = new controlAccesoUsuario();
+        private Controladores.controlador oControlAccesoUsuario = new controlador();
+
+
 
         /// <summary>
         /// Limpiar los recursos que se estén usando.
@@ -98,6 +100,7 @@ private void InitializeComponent()
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(163, 20);
             this.textBox2.TabIndex = 9;
+            this.textBox2.UseSystemPasswordChar = true;
             // 
             // accesoUsuario
             // 
@@ -124,8 +127,11 @@ private void InitializeComponent()
             if (oControlAccesoUsuario.ValidarUsuario(textBox1.Text, textBox2.Text))
             {
                 Console.WriteLine("Acceso Usuario");
+                
                 this.Hide();
+          
                 new opcionesGestion().Show();
+                
             }
             else
             {
@@ -135,7 +141,7 @@ private void InitializeComponent()
         }
         private void accesoUsuario_Load(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
 

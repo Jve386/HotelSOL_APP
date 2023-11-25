@@ -51,9 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controlAccesoUsuario.cs" />
-    <Compile Include="controlGestionUsuarios.cs" />
-    <Compile Include="controlOpcionesGestion.cs" />
+    <Compile Include="controlador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

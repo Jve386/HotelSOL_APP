@@ -16,5 +16,12 @@ namespace HotelSol
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            gestionUsuario gu = new gestionUsuario();
+            this.Hide();
+            gu.Show();
+        }
     }
 }

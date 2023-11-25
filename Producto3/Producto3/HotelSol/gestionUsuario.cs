@@ -12,7 +12,7 @@ namespace HotelSol
 {
     public partial class gestionUsuario : Form
     {
-        Controladores.controlGestionUsuarios oControlGestionUsuarios = new Controladores.controlGestionUsuarios();
+        Controladores.controlador oControlGestionUsuarios = new Controladores.controlador();
         public gestionUsuario()
         {
             InitializeComponent();
@@ -25,7 +25,12 @@ namespace HotelSol
 
         private void gestionUsuario_Load(object sender, EventArgs e)
         {
-           dataGridView1.DataSource = oControlGestionUsuarios.GetList();
+           //dataGridView1.DataSource = oControlGestionUsuarios.GetList();   Esto en el boton de mostrar
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
