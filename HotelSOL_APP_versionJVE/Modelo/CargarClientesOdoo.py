@@ -16,7 +16,8 @@ def obtener_clientes_y_subir_a_odoo():
         odoo_url = 'https://rocket-team.odoo.com/'
         odoo_db = 'rocket-team'
         odoo_username = 'jdelavegae@uoc.edu'
-        odoo_password = 'e496e1c5c238ca58b0365843db31de41ddf72c9b'
+        odoo_password = //poner contrasena
+
 
         # Conectar a MSSQL
         conn = pyodbc.connect(mssql_connection_string)
