@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfHabitacionXmlItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <HabitacionXmlItem>
+    <idHabitacion>1</idHabitacion>
+    <numero>101</numero>
+    <tipo>Doble</tipo>
+    <capacidad>2</capacidad>
+    <precio>150.00</precio>
+    <estado_id>1</estado_id>
+    <servicio_id>1</servicio_id>
+    <pension_id>1</pension_id>
+  </HabitacionXmlItem>
+  <HabitacionXmlItem>
+    <idHabitacion>2</idHabitacion>
+    <numero>102</numero>
+    <tipo>Individual</tipo>
+    <capacidad>1</capacidad>
+    <precio>100.00</precio>
+    <estado_id>1</estado_id>
+    <servicio_id>2</servicio_id>
+    <pension_id>2</pension_id>
+  </HabitacionXmlItem>
+  <HabitacionXmlItem>
+    <idHabitacion>3</idHabitacion>
+    <numero>103</numero>
+    <tipo>Doble</tipo>
+    <capacidad>2</capacidad>
+    <precio>150.00</precio>
+    <estado_id>1</estado_id>
+    <servicio_id>1</servicio_id>
+    <pension_id>1</pension_id>
+  </HabitacionXmlItem>
+</ArrayOfHabitacionXmlItem>
