@@ -33,7 +33,8 @@ class XMLLoader(models.TransientModel):
         url = 'https://rocket-team.odoo.com/'
         db = 'rocket-team'
         username = 'jdelavegae@uoc.edu'
-        password = 'e496e1c5c238ca58b0365843db31de41ddf72c9b'
+        password = //poner contrasena
+
         
         common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
         models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
