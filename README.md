@@ -2,7 +2,7 @@
 
 ## 🛠 Technical Overview
 
-This project synergizes technologies from both the .NET and Python ecosystems to deliver a robust room reservation management application. The .NET components facilitate distributed data programming, with seamless access to SQL Server databases and native XML databases. The core objective is to integrate with Odoo, utilizing Python for efficient CRUD operations and system interaction.
+This project synergizes technologies from both the .NET and Python ecosystems to deliver a room reservation management application. The .NET components facilitate distributed data programming, with access to SQL Server databases and native XML databases. The core objective is to integrate with Odoo, utilizing Python for CRUD operations and system interaction.
 
 ### 🚀 Technologies Used
 
@@ -20,17 +20,21 @@ This project synergizes technologies from both the .NET and Python ecosystems to
 
 - **Odoo API:** Leveraged for seamless connectivity and interaction with the Odoo platform.
 
+- **MVC Pattern:** Implemented using the Model-View-Controller architectural pattern for effective code organization and separation of concerns.
+
 ### 🧐 Conclusions and Justification for Choices
 
 - **System.Xml Library:** Selected for its robust support in working with XML data in .NET, offering user-friendly functionality for basic read and write operations.
 
-- **Entity Framework Core:** Opted for its excellence in advanced XML data manipulation, providing an effective means to model and manipulate data through data models and queries, especially advantageous for complex read and write operations.
+- **Entity Framework Core:** Opted for its XML data manipulation, providing an effective means to model and manipulate data through data models and queries, especially advantageous for complex read and write operations.
 
 - **XmlReader and XmlTextWriter:** Adopted for efficient handling of large XML files and precise control over data read and write operations. These classes facilitate sequential data processing without loading the entire document into memory.
 
 ### 🧩 Object-Relational Mapping (ORM) Used
 
 - Entity Framework Core
+
+This collaborative effort intertwines technologies from both ecosystems to deliver a comprehensive room reservation management solution. The project integrates with Odoo, utilizing Python for CRUD operations and system interaction.
 
 ### 📊 UML DIAGRAM
 ![UML Diagram](diagramas/diagrama_de_clases.jpg)
@@ -42,4 +46,4 @@ This project synergizes technologies from both the .NET and Python ecosystems to
 ### 🔄 SEQUENCE DIAGRAM
 ![Sequence Diagram](diagramas/secuencia.jpg)
 
-This collaborative effort intertwines technologies from both ecosystems to deliver a comprehensive room reservation management solution. The project seamlessly integrates with Odoo, utilizing Python for efficient CRUD operations and system interaction.
+
